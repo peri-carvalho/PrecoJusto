@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
+import { Login } from '../../interfaces/login';
 
 @Component({
   selector: 'app-login',
@@ -38,6 +39,17 @@ submit(){
     error: () => console.log ("Erro")
   })
 }
+
+
+/*    submit dto  data transfer object
+submit(){
+  let test = this.loginForm.value as Login
+  this.loginService.login(test).subscribe({
+    next: () => console.log ("sucesso"),
+    error: () => console.log ("Erro")
+  })
+}
+*/
 
 navigate(){
   this.router.navigate(["/signup"])
